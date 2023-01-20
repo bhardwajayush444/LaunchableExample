@@ -1,0 +1,22 @@
+name: Maven test process
+on:
+  push:
+    branches: [master]
+  pull_request:
+env:
+  LAUNCHABLE_TOKEN: v1:krl/launchable-demo:ea7577b43c654cbabafcd9778c4e6fb4
+  LAUNCHABLE_DEBUG: 1
+  LAUNCHABLE_REPORT_ERROR: 1
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test
+        run: mvn test
+      - name: Record test results to Launchable workspace
+        uses: launchableinc/record-build-and-test-results-action@v1.0.0
+        with:
+          test_runner: maven
+          report_path: './**/target/surefire-reports'
+        if: always()
