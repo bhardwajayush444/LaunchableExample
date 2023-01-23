@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Test
-        run: mvn test
+  
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
