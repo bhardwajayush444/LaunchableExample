@@ -41,5 +41,5 @@ jobs:
         run: mvn test
       - name: Record
         working-directory: target
-        run: launchable record tests --build ayushBuild9634 maven ./**/target/surefire-reports
+        run: launchable record tests --build --name ayushBuild9634 maven ./**/target/surefire-reports
         if: always()
