@@ -28,7 +28,7 @@ jobs:
           pip install launchable
       - run: "launchable verify"
       - name: Record commits and build
-        run: 'launchable record build --name "$GITHUB_RUN_ID" --source ..' # care for working-directory path
+        run: 'launchable record build --name "ayushBuild9634" --source ..' # care for working-directory path
       - name: Subset
         run: |
           launchable subset --get-tests-from-previous-sessions --target 30% maven src/test/java \
@@ -41,5 +41,5 @@ jobs:
         run: mvn test
       - name: Record
         working-directory: target
-        run: launchable record tests --build "$GITHUB_RUN_ID" maven ./**/target/surefire-reports
+        run: launchable record tests --build "ayushBuild9634" maven ./**/target/surefire-reports
         if: always()
