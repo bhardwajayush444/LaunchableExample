@@ -37,7 +37,9 @@ jobs:
           cat subset-result.txt | grep 'subset-id' | awk -F'`'  '{print $2}' | awk -F' ' '{print $5}' > subset-id.txt
            launchable inspect subset --subset-id $(cat subset-id.txt)
       - name: Test
+        working-directory: ./
         run: mvn test
       - name: Record
+        working-directory: target
         run: launchable record tests maven ./**/target/surefire-reports
         if: always()
