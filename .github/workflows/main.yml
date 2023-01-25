@@ -41,5 +41,5 @@ jobs:
         run: mvn test
       - name: Record
         working-directory: target
-        run: launchable record tests build --name "$GITHUB_RUN_ID" maven ./**/target/surefire-reports
+        run: launchable record tests --build "$GITHUB_RUN_ID" maven ./**/target/surefire-reports
         if: always()
