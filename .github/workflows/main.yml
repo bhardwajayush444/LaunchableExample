@@ -1,7 +1,7 @@
 name: Maven test process
 on:
   push:
-    branches: [master]
+    branches: [develop]
   pull_request:
 env:
   LAUNCHABLE_TOKEN: v1:krl/launchable-demo:ea7577b43c654cbabafcd9778c4e6fb4
